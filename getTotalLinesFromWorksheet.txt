@@ -1,0 +1,13 @@
+Function GetLastRow(Optional WorksheetName As String) As Long
+Dim rowNo As Long
+
+If WorksheetName = vbNullString Then WorksheetName = ActiveSheet.Name
+
+    With Worksheets(WorksheetName)
+    On Error Resume Next
+        rowNo = .Cells.Find("*", .Cells(1), xlFormulas, xlWhole, xlByRows, xlPrevious).Row
+        If Err <> 0 Then rowNo = 0
+    End With
+
+    GetLastRow = rowNo
+End Function
