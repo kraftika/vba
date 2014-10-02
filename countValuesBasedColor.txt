@@ -1,0 +1,19 @@
+Sub AddBasedColor(COLUMN As String, color As Integer, WHERE As String)
+    Application.DisplayAlerts = False
+        
+           nTotalRowsX52 = GetLastRow(SOURCE_SHEET)
+               
+                   For r = START_ROW To nTotalRowsX52
+                           val1 = Worksheets(SOURCE_SHEET).Range(COLUMN & r).Value
+                                   
+                                           If (IsNull(val1) Or IsEmpty(val1)) Then
+                                                       GoTo NextIteration
+                                                               End If
+                                                                       
+                                                                               If (getBackgroundColor(SOURCE_SHEET, COLUMN & r) = color) Then
+                                                                                           Worksheets(SOURCE_SHEET).Range(WHERE).Value = 1
+                                                                                                   End If
+                                                                                                           
+                                                                                                           NextIteration:
+                                                                                                                Next r
+                                                                                                                End Sub

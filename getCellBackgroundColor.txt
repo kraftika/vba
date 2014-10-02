@@ -1,0 +1,4 @@
+Function getBackgroundColor(sheetW As String, rangeCell As String)
+    X = Worksheets(sheetW).Range(rangeCell).Interior.ColorIndex
+    getBackgroundColor = X
+End Function
